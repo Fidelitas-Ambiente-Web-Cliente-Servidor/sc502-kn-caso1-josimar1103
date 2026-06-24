@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Restaurante Bella Italia</title>
+
+  <!-- Bootstrap -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Tipografías de Google -->
+  <link
+    href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Lato:wght@300;400;700&display=swap"
+    rel="stylesheet">
+
+  <!-- Hoja de estilos -->
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+  <div class="container py-5">
+
+    <!-- ENCABEZADO -->
+    <header class="text-center mb-5">
+      <h1>Restaurante Bella Italia</h1>
+      <p class="lead">
+
+        Bienvenido. Descubre nuestro menú y realiza tu reserva en línea.
+
+      </p>
+    </header>
+
+    <!-- MENU DEL RESTAURANTE -->
+    <section>
+      <h2 class="mb-4">
+
+        Menú del Restaurante
+
+      </h2>
+
+      <!-- Botones para filtrar las categorias -->
+      <div class="mb-4">
+        <button id="btn-todos" class="btn btn-outline-dark filtro activo" onclick="filtrarCategoria('Todos')">
+
+          Todos
+
+        </button>
+        <button id="btn-entrada" class="btn btn-outline-dark filtro" onclick="filtrarCategoria('Entrada')">
+
+          Entradas
+
+        </button>
+        <button id="btn-plato" class="btn btn-outline-dark filtro" onclick="filtrarCategoria('Plato Fuerte')">
+
+          Platos Fuertes
+
+        </button>
+        <button id="btn-postre" class="btn btn-outline-dark filtro" onclick="filtrarCategoria('Postre')">
+
+          Postres
+
+        </button>
+      </div>
+
+      <!-- Aquí JavaScript agregara dinamicamente las tarjetas -->
+      <div id="menu-container" class="row">
+      </div>
+    </section>
+    <hr class="my-5">
+
+    <!-- FORMULARIO DE RESERVAS -->
+    <section>
+      <h2 class="mb-4">
+
+        Formulario de Reservas
+
+      </h2>
+      <form id="form-reserva">
+        <div class="row">
+
+          <!-- Nombre -->
+          <div class="col-md-6 mb-3">
+            <label for="nombre" class="form-label">
+
+              Nombre Completo
+
+            </label>
+            <input type="text" id="nombre" class="form-control">
+            <div id="error-nombre" class="error-campo"></div>
+          </div>
+
+          <!-- Correo -->
+          <div class="col-md-6 mb-3">
+            <label for="correo" class="form-label">
+
+              Correo Electrónico
+
+            </label>
+            <input type="email" id="correo" class="form-control">
+            <div id="error-correo" class="error-campo"></div>
+          </div>
+
+          <!-- Fecha -->
+          <div class="col-md-4 mb-3">
+            <label for="fecha" class="form-label">
+
+              Fecha
+
+            </label>
+            <input type="date" id="fecha" class="form-control">
+            <div id="error-fecha" class="error-campo"></div>
+          </div>
+
+          <!-- Hora -->
+          <div class="col-md-4 mb-3">
+            <label for="hora" class="form-label">
+
+              Hora
+
+            </label>
+            <select id="hora" class="form-select">
+              <option value="12:00">12:00</option>
+              <option value="13:00">13:00</option>
+              <option value="18:00">18:00</option>
+              <option value="19:00">19:00</option>
+              <option value="20:00">20:00</option>
+            </select>
+          </div>
+
+          <!-- Personas -->
+          <div class="col-md-4 mb-3">
+            <label for="personas" class="form-label">
+
+              Número de Personas
+
+            </label>
+            <input type="number" id="personas" class="form-control" min="1" max="20">
+            <div id="error-personas" class="error-campo"></div>
+          </div>
+          <div class="col-12 mb-3">
+            <label for="comentarios" class="form-label">
+            </label>
+            <textarea id="comentarios" rows="4" class="form-control"></textarea>
+          </div>
+        </div>
+
+        <!-- Botón que se habilitará únicamente cuando el formulario sea válido -->
+
+        <button type="submit" id="btn-enviar" class="btn btn-success" disabled>
+
+          Registrar Reserva
+
+        </button>
+
+      </form>
+
+    </section>
+
+
+    <hr class="my-5">
+
+    <!-- TABLA DE RESERVAS -->
+
+    <section>
+      <h2 class="mb-4">
+
+        Reservas Registradas
+
+      </h2>
+      <div class="table-responsive">
+        <table class="table table-bordered table-hover">
+          <thead class="table-dark">
+            <tr>
+              <th>Nombre</th>
+              <th>Correo</th>
+              <th>Fecha</th>
+              <th>Hora</th>
+              <th>Personas</th>
+            </tr>
+          </thead>
+
+          <!-- Las filas serán creadas desde JavaScript -->
+          <tbody id="tabla-reservas">
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+
+    <!-- RESUMEN -->
+
+    <section>
+
+      <!-- Este bloque se actualiza automáticamente -->
+      <div id="resumen" class="resumen-reservas">
+        <h4>
+          Resumen de Reservas
+        </h4>
+        <p>
+          Total de reservas: <span id="total-reservas">0</span>
+        </p>
+        <p>
+          Total de personas: <span id="total-personas">0</span>
+        </p>
+        <p>
+          Reserva con mayor cantidad de personas:
+          <span id="mayor-reserva">
+            Ninguna
+          </span>
+        </p>
+      </div>
+    </section>
+  </div>
+  <script src="js/app.js"></script>
+</body>
+
+</html>

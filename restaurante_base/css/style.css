@@ -1,0 +1,228 @@
+/*----   VARIABLES DE DISEÑO   ----*/
+
+:root {
+  /*----   Paleta de colores   ----*/
+  --color-primario: #2C3E50;
+  --color-secundario: #E67E22;
+  --color-fondo: #FAF8F5;
+  --color-texto: #333333;
+  --color-claro: #FFFFFF;
+  --color-reserva-vip: #FFF3CD;
+  
+  /*----   Tipografías   ----*/
+  --fuente-titulo: 'Playfair Display', serif;
+  --fuente-cuerpo: 'Lato', sans-serif;
+}
+
+/*----   RESET GENERAL   ----*/
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--fuente-cuerpo);
+  background: var(--color-fondo);
+  color: var(--color-texto);
+  line-height: 1.6;
+}
+
+/*----   TÍTULOS   ----*/
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: var(--fuente-titulo);
+  color: var(--color-primario);
+}
+
+h1 {
+  font-size: 2.8rem;
+  margin-bottom: 10px;
+}
+
+h2 {
+  margin-bottom: 20px;
+}
+
+/*----   BOTONES DE FILTRO   ----*/
+
+.filtro {
+  margin-right: 8px;
+  margin-bottom: 10px;
+  transition: .3s;
+}
+
+/*----   Botón activo   ----*/
+
+.activo {
+  background: var(--color-secundario) !important;
+  color: white !important;
+  border-color: var(--color-secundario) !important;
+}
+
+.filtro:hover {
+  transform: translateY(-2px);
+}
+
+/*----   TARJETAS DEL MENÚ   ----*/
+
+.card-plato {
+  overflow:hidden;
+  background: var(--color-claro);
+  border-radius: 10px;
+  padding: 20px;
+  border: 1px solid #dddddd;
+  height: 100%;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, .08);
+  transition: .3s;
+}
+
+.card-plato:hover {
+  transform: translateY(-5px);
+  border-color: var(--color-secundario);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, .15);
+}
+
+.card-plato h4 {
+  margin-bottom: 15px;
+}
+
+.card-plato p {
+  margin-bottom: 12px;
+}
+
+.card-plato small {
+  color: #777;
+}
+
+.card-plato img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 15px;
+}
+
+/*----   FORMULARIO   ----*/
+
+form {
+  background: white;
+  padding: 25px;
+  border-radius: 10px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, .08);
+}
+
+.form-control,
+.form-select {
+  border-radius: 8px;
+}
+
+.form-control:focus,
+.form-select:focus {
+  border-color: var(--color-secundario);
+  box-shadow: 0 0 5px rgba(230, 126, 34, .35);
+}
+
+/*----   MENSAJES DE ERROR   ----*/
+
+.error-campo {
+  color: #dc3545;
+  font-size: .85rem;
+  margin-top: 5px;
+  font-weight: bold;
+}
+
+/*----   TABLA   ----*/
+
+table {
+  background: white;
+}
+
+thead {
+  text-align: center;
+}
+
+tbody td {
+  vertical-align: middle;
+}
+
+/*----   FILAS DE RESERVA   ----*/
+
+.fila-reserva {
+  transition: .3s;
+}
+
+.fila-reserva:hover {
+  background: #f7f7f7;
+}
+
+/*----   RESUMEN DE RESERVAS   ----*/
+
+.resumen-reservas {
+  margin-top: 30px;
+  background: white;
+  padding: 25px;
+  border-left: 5px solid var(--color-secundario);
+  border-radius: 8px;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, .08);
+}
+
+.resumen-reservas h4 {
+  margin-bottom: 15px;
+}
+
+.resumen-reservas p {
+  margin-bottom: 8px;
+}
+
+/*----   BOTÓN DE RESERVA   ----*/
+
+#btn-enviar {
+  min-width: 220px;
+}
+
+#btn-enviar:disabled {
+  cursor: not-allowed;
+  opacity: .7;
+}
+
+/*----   PIE DE PÁGINA   ----*/
+
+footer {
+  margin-top: 50px;
+  text-align: center;
+  color: #777;
+}
+
+/*----   RESPONSIVE   ----*/
+
+@media(max-width:768px) {
+
+  h1 {
+    font-size: 2rem;
+  }
+
+  .card-plato {
+    margin-bottom: 20px;
+  }
+
+  .filtro {
+    width: 100%;
+    margin-bottom: 10px;
+    transition: .3s;
+    min-width: 140px;
+  }
+
+  #btn-enviar {
+    width: 100%;
+  }
+
+  .resumen-reservas {
+    text-align: center;
+  }
+
+}
